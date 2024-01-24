@@ -4,16 +4,16 @@ const UserSchema = new Schema({
   clerkId: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     username: {
-      type:String, required:true, 
+      type:String, required:false, 
     }, 
     firstName: {
-        type:String, required:true
+        type:String, required:false
     },
     lastName: {
-        type:String, required:true
+        type:String, required:false
     },
     photo: {
-        type:String, required:true
+        type:String, required:false
     }
 });
 
