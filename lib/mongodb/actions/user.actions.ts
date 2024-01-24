@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 
-import { connectToDatabase } from '@/lib/mongodb/database'
+import { connectToDatabase } from "@/lib/mongodb/database/index";
 import User from '@/lib/mongodb/database/models/user.model'
 import Order from '@/lib/mongodb/database/models/order.model'
 import Event from '@/lib/mongodb/database/models/event.model'
