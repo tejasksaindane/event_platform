@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 import { Button } from "../ui/button";
 import { formUrlQuery } from "@/lib/utils";
@@ -13,6 +13,10 @@ type PaginationProps = {
 
 const Pagination = ({ page, totalPages, urlParamName }: PaginationProps) => {
   const router = useRouter();
+  const params = useParams();
+
+  console.log("============================>", params);
+
   const searchParams = useSearchParams();
   const onClick = (btnType: string) => {
     const pageValue = btnType === "next" ? Number(page) + 1 : Number(page) - 1;

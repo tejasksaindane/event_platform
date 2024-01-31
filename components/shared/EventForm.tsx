@@ -26,9 +26,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useRouter } from "next/navigation";
 import { Checkbox } from "../ui/checkbox";
-import { createEvent } from "@/lib/mongodb/actions/event.actions";
+import { createEvent, updateEvent } from "@/lib/mongodb/actions/event.actions";
 import { IEvent } from "@/lib/mongodb/database/models/event.model";
-import UpdateEvent from "@/app/(root)/events/[id]/update/page";
 
 type EventFormProps = {
   userId: string;
@@ -96,7 +95,7 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
       }
 
       try {
-        const updatedEvent = await UpdateEvent({
+        const updatedEvent = await updateEvent({
           userId,
           event: { ...values, imageUrl: uploadedImageUrl, _id: eventId },
           path: `/events/${eventId}`,
