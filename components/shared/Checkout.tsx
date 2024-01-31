@@ -5,11 +5,9 @@ import { IEvent } from "@/lib/mongodb/database/models/event.model";
 import { Button } from "../ui/button";
 import { checkoutOrder } from "@/lib/mongodb/actions/order.actions";
 
+loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const Checkout = ({ event, userId }: { event: IEvent; userId: string }) => {
-
-  loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
